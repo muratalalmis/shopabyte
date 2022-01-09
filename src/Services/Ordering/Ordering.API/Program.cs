@@ -1,4 +1,6 @@
+using EventBus.Messages;
 using MassTransit;
+using Ordering.API.EventBusConsumer;
 using Ordering.Application;
 using Ordering.Infrastructure;
 using Ordering.Infrastructure.Persistence;
@@ -17,15 +19,20 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 // Register layers
 builder.Services.AddInfrastructureLayer();
 builder.Services.AddApplicationServices();
+builder.Services.AddAutoMapper(typeof(Program));
 
 // MassTransit-RabbitMQ Configuration
 builder.Services.AddMassTransit(config => {
+    config.AddConsumer<CheckoutConsumer>();
     config.UsingRabbitMq((ctx, cfg) => {
         cfg.Host(builder.Configuration["EventBusSettings:HostAddress"]);
+        cfg.ReceiveEndpoint(Constants.CHECKOUT_QUEUE, c =>
+        {
+            c.ConfigureConsumer<CheckoutConsumer>(ctx);
+        });
     });
 });
 builder.Services.AddMassTransitHostedService();
-
 
 var app = builder.Build();
 
