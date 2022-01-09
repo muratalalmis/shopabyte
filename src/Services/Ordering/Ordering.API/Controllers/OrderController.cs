@@ -15,7 +15,7 @@ namespace Ordering.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet(Name = "GetSalesBetweenDate")]
+        [HttpGet(Name = "GetSales")]
         [ProducesResponseType(typeof(IEnumerable<SalesDto>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<SalesDto>>> GetSalesBetweenDate([FromQuery] DateTime beginDate, [FromQuery] DateTime endDate)
         {
