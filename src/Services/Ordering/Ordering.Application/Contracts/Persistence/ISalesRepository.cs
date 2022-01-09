@@ -4,6 +4,6 @@ namespace Ordering.Application.Contracts.Persistence
 {
     public interface ISalesRepository : IAsyncRepository<Sales>
     {
-        Task<IReadOnlyCollection<Sales>> GetSalesByDate(DateTime begin, DateTime end);
+        Task<IReadOnlyCollection<Sales>> GetByDateBetween(DateTime begin, DateTime end);
     }
 }

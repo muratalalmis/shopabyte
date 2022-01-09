@@ -1,7 +1,8 @@
+using Ordering.Application;
+using Ordering.Infrastructure;
 using Ordering.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
-// Use configuration when you need
 // var configuration = builder.Configuration;
 
 // Add services to the container.
@@ -10,8 +11,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<OrderContext>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+// Register layers
+builder.Services.AddInfrastructureLayer();
+builder.Services.AddApplicationServices();
 
 
 var app = builder.Build();

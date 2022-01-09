@@ -13,7 +13,7 @@ namespace Ordering.Infrastructure.Repositories
 
         public AsyncRepositoryBase(OrderContext orderContext)
         {
-            _dbContext = orderContext ?? throw new ArgumentNullException(nameof(orderContext));
+            _dbContext = orderContext;
         }
 
         public virtual async Task<TEntity> AddAsync(TEntity entity)
