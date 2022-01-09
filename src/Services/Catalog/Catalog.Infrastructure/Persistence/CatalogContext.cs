@@ -1,4 +1,4 @@
-﻿using Catalog.API.Entities;
+﻿using Catalog.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

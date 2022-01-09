@@ -1,6 +1,6 @@
-﻿using Catalog.API.Entities;
+﻿using Catalog.Domain.Entities;
 
-namespace Catalog.API.Repositories
+namespace Catalog.Infrastructure.Repositories
 {
     public interface IProductRepository
     {

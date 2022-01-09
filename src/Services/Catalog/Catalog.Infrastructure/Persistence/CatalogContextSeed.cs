@@ -1,4 +1,5 @@
-﻿using Catalog.API.Entities;
+﻿using Catalog.Domain.Entities;
+using Microsoft.Extensions.Logging;
 
 namespace Catalog.API.Persistence
 {

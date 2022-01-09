@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Catalog.API.Migrations
+namespace Catalog.Infrastructure.Migrations
 {
     public partial class Initial : Migration
     {

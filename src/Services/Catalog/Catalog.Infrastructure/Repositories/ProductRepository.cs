@@ -1,10 +1,10 @@
-﻿using Catalog.API.Entities;
-using Catalog.API.Persistence;
+﻿using Catalog.API.Persistence;
+using Catalog.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Catalog.API.Repositories
+namespace Catalog.Infrastructure.Repositories
 {
-    internal class ProductRepository : IProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly CatalogContext _catalogContext;
 
