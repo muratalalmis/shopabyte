@@ -4,7 +4,7 @@ using Checkout.API.Exceptions;
 
 namespace Checkout.API.Services
 {
-    internal class ShoppingCartItemFactory : IShoppingCartItemFactory
+    public class ShoppingCartItemFactory : IShoppingCartItemFactory
     {
         private readonly CatalogGrpcService.CatalogGrpcServiceClient _catalogGrpcServiceClient;
 

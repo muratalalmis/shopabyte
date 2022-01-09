@@ -40,7 +40,9 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{177EDC66-4A9E-4A98-95FB-3C16EDD5EF22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Messages", "BuildingBlocks\EventBus.Messages\EventBus.Messages.csproj", "{D029F1D5-237F-42F8-A5CE-4B6BBB5D8D1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.Messages", "BuildingBlocks\EventBus.Messages\EventBus.Messages.csproj", "{D029F1D5-237F-42F8-A5CE-4B6BBB5D8D1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checkout.API.Tests", "..\Checkout.API.Tests\Checkout.API.Tests.csproj", "{A8CDF2B8-AA0A-447A-9E4F-15034027489E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -92,6 +94,10 @@ Global
 		{D029F1D5-237F-42F8-A5CE-4B6BBB5D8D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D029F1D5-237F-42F8-A5CE-4B6BBB5D8D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D029F1D5-237F-42F8-A5CE-4B6BBB5D8D1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8CDF2B8-AA0A-447A-9E4F-15034027489E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8CDF2B8-AA0A-447A-9E4F-15034027489E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8CDF2B8-AA0A-447A-9E4F-15034027489E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8CDF2B8-AA0A-447A-9E4F-15034027489E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,6 +117,7 @@ Global
 		{67022A99-1BDD-4F62-A1DB-34DCF64CA226} = {6771A2E4-9DE3-4B2C-82AA-8885421D5086}
 		{25AD4053-9D99-4B50-86C6-F91101E821BB} = {6771A2E4-9DE3-4B2C-82AA-8885421D5086}
 		{D029F1D5-237F-42F8-A5CE-4B6BBB5D8D1B} = {177EDC66-4A9E-4A98-95FB-3C16EDD5EF22}
+		{A8CDF2B8-AA0A-447A-9E4F-15034027489E} = {88BBEF46-02DC-439B-933C-217565B3C421}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88FFFC32-4AC5-49E1-B00B-EC5AA024BE5E}
