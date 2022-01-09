@@ -1,4 +1,5 @@
 using Catalog.API.Persistence;
+using Catalog.API.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Our services
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<CatalogContext>();
 
 var app = builder.Build();
