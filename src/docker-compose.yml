@@ -1,8 +1,8 @@
 version: '3.4'
 
 services:
-  customers.api:
-    image: ${DOCKER_REGISTRY-}customersapi
+  ordering.api:
+    image: ${DOCKER_REGISTRY-}orderingapi
     build:
       context: .
-      dockerfile: Services/Customers/Customers.API/Dockerfile
+      dockerfile: Services/Ordering/Ordering.API/Dockerfile
