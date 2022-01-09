@@ -13,7 +13,6 @@ namespace Ordering.Infrastructure
         {
             services.AddDbContext<OrderContext>();
 
-            services.AddScoped(typeof(IAsyncRepository<>), typeof(AsyncRepositoryBase<>));
             services.AddScoped<ISalesRepository, SalesRepository>();
 
             services.AddTransient<IEmailService, DefaultEmailService>();
