@@ -19,14 +19,6 @@ namespace Checkout.API.Tests
         {
             _grpcClient = Substitute.For<CatalogGrpcService.CatalogGrpcServiceClient>();
             _factory = new ShoppingCartItemFactory(_grpcClient);
-
-            // gRPC async mock
-            //var fakeCall = new AsyncUnaryCall<ProductListModel>(
-            //    Task.FromResult(productModel),
-            //    Task.FromResult(new Metadata()),
-            //    () => Status.DefaultSuccess,
-            //    () => new Metadata(),
-            //    () => { });
         }
 
         [Test]
@@ -39,7 +31,7 @@ namespace Checkout.API.Tests
             var item = _factory.Create(1, 1, "TRY");
 
             Assert.IsNotNull(item);
-            Assert.AreEqual(decimal.Parse(expectedPrice), (decimal)item.Price);
+            Assert.AreEqual(decimal.Parse(expectedPrice), item.Price);
         }
 
         [Test]
