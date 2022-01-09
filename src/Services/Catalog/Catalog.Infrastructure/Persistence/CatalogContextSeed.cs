@@ -11,7 +11,7 @@ namespace Catalog.API.Persistence
             {
                 logger.LogInformation($"There is no data in {nameof(CatalogContext)}. Seed started async.");
 
-                catalogContext.Products.AddRange(catalogContext.Products);
+                catalogContext.Products.AddRange(GetPreConfiguration());
                 await catalogContext.SaveChangesAsync();
 
                 logger.LogInformation($"{nameof(CatalogContext)} seed completed async.");
@@ -24,6 +24,7 @@ namespace Catalog.API.Persistence
             {
                 new Product() { Name = "Iphone 11", Currency = "TRY", Price = 10999 },
                 new Product() { Name = "Iphone 12", Currency = "TRY", Price = 15699 },
+                new Product() { Name = "Iphone 13", Currency = "TRY", Price = 25699 },
             };
         }
     }
