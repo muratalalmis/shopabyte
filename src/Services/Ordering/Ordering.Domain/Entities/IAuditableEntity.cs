@@ -1,4 +1,4 @@
-﻿namespace Ordering.Domain
+﻿namespace Ordering.Domain.Entities
 {
     /// <summary>
     /// Implements audit log fields per entity
