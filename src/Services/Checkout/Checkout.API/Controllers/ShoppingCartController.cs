@@ -25,7 +25,7 @@ namespace Checkout.API.Controllers
             return Ok(cart);
         }
 
-        [HttpGet("{customerId}", Name = "AddItem")]
+        [HttpGet("{customerId}/[action]", Name = "AddItem")]
         [ProducesResponseType(typeof(ShoppingCartItem), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<ShoppingCartItem>> AddItem(int customerId, [FromQuery] int productId, [FromQuery] int quantity)
         {
@@ -33,14 +33,15 @@ namespace Checkout.API.Controllers
             return Ok(item);
         }
 
-        [HttpGet("{customerId}", Name = "RemoveItem")]
+        [HttpGet("{customerId}/[action]", Name = "RemoveItem")]
         [ProducesResponseType(typeof(void), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<ShoppingCartItem>> RemoveItem(int customerId, [FromQuery] Guid id)
+        public async Task<IActionResult> RemoveItem(int customerId, [FromQuery] Guid id)
         {
             await _shoppingCartService.RemoveItem(customerId, id);
             return Ok();
         }
 
+        [Route("{customerId}/[action]")]
         [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.Accepted)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
