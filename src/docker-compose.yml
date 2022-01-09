@@ -1,8 +1,22 @@
 version: '3.4'
 
 services:
-  ordering.api:
-    image: ${DOCKER_REGISTRY-}orderingapi
+  catalog.api:
+    image: ${DOCKER_REGISTRY-}catalogapi
     build:
       context: .
-      dockerfile: Services/Ordering/Ordering.API/Dockerfile
+      dockerfile: Services/Catalog/Catalog.API/Dockerfile
+
+  catalog.grpc:
+    image: ${DOCKER_REGISTRY-}cataloggrpc
+    build:
+      context: .
+      dockerfile: Services/Catalog/Catalog.Grpc/Dockerfile
+
+
+  checkout.api:
+    image: ${DOCKER_REGISTRY-}checkoutapi
+    build:
+      context: .
+      dockerfile: Services/Checkout/Checkout.API/Dockerfile
+

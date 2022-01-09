@@ -26,19 +26,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Application", "Ser
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.API", "Services\Ordering\Ordering.API\Ordering.API.csproj", "{2249B2AB-97B2-4679-B60F-A8C5E7068B44}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{AFECB2F0-816A-473F-AE90-127CDDC08680}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Checkout", "Checkout", "{88BBEF46-02DC-439B-933C-217565B3C421}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Checkout.API", "Services\Checkout\Checkout.API\Checkout.API.csproj", "{B3209E9D-AF37-441A-AD12-69C3A7A39C40}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{595B0549-9DD5-4076-8B9D-F7DFC4687E01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Domain", "Services\Catalog\Catalog.Domain\Catalog.Domain.csproj", "{188807A5-9F47-4D11-BB09-FECB9C9A1960}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Domain", "Services\Catalog\Catalog.Domain\Catalog.Domain.csproj", "{188807A5-9F47-4D11-BB09-FECB9C9A1960}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Infrastructure", "Services\Catalog\Catalog.Infrastructure\Catalog.Infrastructure.csproj", "{67022A99-1BDD-4F62-A1DB-34DCF64CA226}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Infrastructure", "Services\Catalog\Catalog.Infrastructure\Catalog.Infrastructure.csproj", "{67022A99-1BDD-4F62-A1DB-34DCF64CA226}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.Grpc", "Services\Catalog\Catalog.Grpc\Catalog.Grpc.csproj", "{25AD4053-9D99-4B50-86C6-F91101E821BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.Grpc", "Services\Catalog\Catalog.Grpc\Catalog.Grpc.csproj", "{25AD4053-9D99-4B50-86C6-F91101E821BB}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{9E6A54B0-2C8D-4678-BF27-CE4A64B0D327}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,10 +62,6 @@ Global
 		{2249B2AB-97B2-4679-B60F-A8C5E7068B44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2249B2AB-97B2-4679-B60F-A8C5E7068B44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2249B2AB-97B2-4679-B60F-A8C5E7068B44}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AFECB2F0-816A-473F-AE90-127CDDC08680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AFECB2F0-816A-473F-AE90-127CDDC08680}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AFECB2F0-816A-473F-AE90-127CDDC08680}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AFECB2F0-816A-473F-AE90-127CDDC08680}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B3209E9D-AF37-441A-AD12-69C3A7A39C40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B3209E9D-AF37-441A-AD12-69C3A7A39C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3209E9D-AF37-441A-AD12-69C3A7A39C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -86,6 +82,10 @@ Global
 		{25AD4053-9D99-4B50-86C6-F91101E821BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25AD4053-9D99-4B50-86C6-F91101E821BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25AD4053-9D99-4B50-86C6-F91101E821BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E6A54B0-2C8D-4678-BF27-CE4A64B0D327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E6A54B0-2C8D-4678-BF27-CE4A64B0D327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E6A54B0-2C8D-4678-BF27-CE4A64B0D327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E6A54B0-2C8D-4678-BF27-CE4A64B0D327}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

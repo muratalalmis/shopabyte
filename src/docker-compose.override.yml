@@ -1,12 +1,36 @@
 version: '3.4'
 
 services:
-  ordering.api:
+  catalog.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
     ports:
-      - "80"
-      - "443"
+      - "8000:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+  catalog.grpc:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8001:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+  shoppingcartdb:
+    container_name: shoppingcartdb
+    image: redis
+    restart: always    
+    ports:
+      - "6379:6379"
+  checkout.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "CacheSettings:ConnectionString=localhost:6379"
+      - "GrpcSettings:CatalogUrl=http://discount.grpc"
+    depends_on:
+      - shoppingcartdb
+    ports:
+      - "8002:80"
     volumes:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
