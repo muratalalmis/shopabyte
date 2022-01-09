@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Ordering.Application.Contracts.Infrastructure;
 using Ordering.Application.Contracts.Persistence;
+using Ordering.Application.Contracts.Services;
 using Ordering.Infrastructure.Persistence;
 using Ordering.Infrastructure.Repositories;
 using Ordering.Infrastructure.Services;
@@ -14,9 +15,9 @@ namespace Ordering.Infrastructure
             services.AddDbContext<OrderContext>();
 
             services.AddScoped<ISalesRepository, SalesRepository>();
-
             services.AddTransient<IEmailService, DefaultEmailService>();
-
+            services.AddTransient<IOrderIdentityFactory, OrderIdentityFactory>();
+            
             return services;
         }
     }
