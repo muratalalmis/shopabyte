@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Ordering.Application.Contracts.Infrastructure;
 using Ordering.Application.Contracts.Persistence;
 using Ordering.Infrastructure.Persistence;
 using Ordering.Infrastructure.Repositories;
+using Ordering.Infrastructure.Services;
 
 namespace Ordering.Infrastructure
 {
@@ -13,6 +15,8 @@ namespace Ordering.Infrastructure
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(AsyncRepositoryBase<>));
             services.AddScoped<ISalesRepository, SalesRepository>();
+
+            services.AddTransient<IEmailService, DefaultEmailService>();
 
             return services;
         }

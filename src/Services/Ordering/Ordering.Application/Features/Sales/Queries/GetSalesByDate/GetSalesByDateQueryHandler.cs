@@ -4,12 +4,12 @@ using Ordering.Application.Contracts.Persistence;
 
 namespace Ordering.Application.Features.Sales.Queries.GetSalesByDate
 {
-    public class GetSalesByDateHandler : IRequestHandler<GetSalesByDateQuery, List<SalesDto>>
+    public class GetSalesByDateQueryHandler : IRequestHandler<GetSalesByDateQuery, List<SalesDto>>
     {
         private readonly ISalesRepository _salesRepository;
         private readonly IMapper _mapper;
 
-        public GetSalesByDateHandler(
+        public GetSalesByDateQueryHandler(
             ISalesRepository salesRepository,
             IMapper mapper)
         {
