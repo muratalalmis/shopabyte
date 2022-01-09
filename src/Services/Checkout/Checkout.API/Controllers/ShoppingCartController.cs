@@ -1,5 +1,8 @@
-﻿using Checkout.API.Entities;
+﻿using AutoMapper;
+using Checkout.API.Entities;
 using Checkout.API.Services;
+using EventBus.Messages.Events;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -9,10 +12,17 @@ namespace Checkout.API.Controllers
     [ApiController]
     public class ShoppingCartController : ControllerBase
     {
+        private readonly IMapper _mapper;
+        private readonly IPublishEndpoint _publishEndpoint;
         private readonly IShoppingCartService _shoppingCartService;
 
-        public ShoppingCartController(IShoppingCartService shoppingCartService)
+        public ShoppingCartController(
+            IMapper mapper,
+            IPublishEndpoint publishEndpoint,
+            IShoppingCartService shoppingCartService)
         {
+            _mapper = mapper;
+            _publishEndpoint = publishEndpoint;
             _shoppingCartService = shoppingCartService;
         }
 
@@ -47,14 +57,15 @@ namespace Checkout.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<IActionResult> Checkout(int customerId)
         {
-            var basket = await _shoppingCartService.Get(customerId);
-            if (basket == null)
+            var cart = await _shoppingCartService.Get(customerId);
+            if (cart == null)
             {
                 return BadRequest();
             }
 
             // send checkout event to rabbitmq
-            // TODO : use rabbit mq
+            var eventMessage = _mapper.Map<CheckoutEvent>(cart);
+            await _publishEndpoint.Publish(eventMessage);
 
             // remove the basket
             await _shoppingCartService.Drop(customerId);

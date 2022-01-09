@@ -17,19 +17,20 @@ services:
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
-  shoppingcartdb:
-    container_name: shoppingcartdb
-    image: redis
-    restart: always    
-    ports:
-      - "6379:6379"
+
+  #shoppingcartdb:
+  #  container_name: shoppingcartdb
+  #  image: redis
+  #  restart: always    
+  #  ports:
+  #    - "6379:6379"
   checkout.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "CacheSettings:ConnectionString=localhost:6379"
+      - "CacheSettings:ConnectionString=localhost:6380"
       - "GrpcSettings:CatalogUrl=http://discount.grpc"
-    depends_on:
-      - shoppingcartdb
+    #depends_on:
+    #  - shoppingcartdb
     ports:
       - "8002:80"
     volumes:

@@ -1,6 +1,7 @@
 using Catalog.Grpc;
 using Checkout.API.Repositories;
 using Checkout.API.Services;
+using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
 builder.Services.AddScoped<IShoppingCartItemFactory, ShoppingCartItemFactory>();
 builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
+builder.Services.AddAutoMapper(typeof(Program));
+
+// MassTransit-RabbitMQ Configuration
+builder.Services.AddMassTransit(config => {
+    config.UsingRabbitMq((ctx, cfg) => {
+        cfg.Host(builder.Configuration["EventBusSettings:HostAddress"]);
+    });
+});
+builder.Services.AddMassTransitHostedService();
+
 
 var configuration = builder.Configuration;
 builder.Services.AddGrpcClient<CatalogGrpcService.CatalogGrpcServiceClient>(o => 

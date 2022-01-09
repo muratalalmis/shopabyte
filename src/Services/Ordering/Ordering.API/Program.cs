@@ -1,3 +1,4 @@
+using MassTransit;
 using Ordering.Application;
 using Ordering.Infrastructure;
 using Ordering.Infrastructure.Persistence;
@@ -16,6 +17,14 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 // Register layers
 builder.Services.AddInfrastructureLayer();
 builder.Services.AddApplicationServices();
+
+// MassTransit-RabbitMQ Configuration
+builder.Services.AddMassTransit(config => {
+    config.UsingRabbitMq((ctx, cfg) => {
+        cfg.Host(builder.Configuration["EventBusSettings:HostAddress"]);
+    });
+});
+builder.Services.AddMassTransitHostedService();
 
 
 var app = builder.Build();
