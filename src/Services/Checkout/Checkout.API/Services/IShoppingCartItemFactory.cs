@@ -4,6 +4,6 @@ namespace Checkout.API.Services
 {
     internal interface IShoppingCartItemFactory
     {
-        ShoppingCartItem Create(int productId, int quantity);
+        ShoppingCartItem Create(int productId, int quantity, string currency);
     }
 }

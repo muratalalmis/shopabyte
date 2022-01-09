@@ -24,7 +24,7 @@ namespace Checkout.API.Services
                 cart = CreateDefault(customerId);
             }
 
-            var item = _shoppingCartItemFactory.Create(productId, quantity);
+            var item = _shoppingCartItemFactory.Create(productId, quantity, cart.Currency);
 
             cart.Items.Add(item);
             cart.Total += item.Price;
