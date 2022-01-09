@@ -9,6 +9,7 @@ namespace Checkout.API.Mapping
         public MappingProfile()
         {
             CreateMap<ShoppingCart, CheckoutEvent>();
+            CreateMap<ShoppingCartItem, CheckOutItem>();
         }
     }
 }
