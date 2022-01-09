@@ -44,7 +44,6 @@ namespace Ordering.Application.Features.Sales.Commands.PlaceOrder
 
         private async Task SendMail(Domain.Entities.Sales sales)
         {
-            // TODO : 
             var email = new Email();
             try
             {

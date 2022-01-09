@@ -7,7 +7,6 @@ namespace Ordering.Infrastructure.Services
     {
         public Task<bool> SendEmail(Email email)
         {
-            // TODO implement
             throw new NotImplementedException();
         }
     }

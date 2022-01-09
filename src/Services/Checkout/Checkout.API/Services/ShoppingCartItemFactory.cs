@@ -34,8 +34,14 @@ namespace Checkout.API.Services
 
         private decimal ConvertTo(string from, string to, decimal amount)
         {
-            // TODO : 
-            return amount;
+            if (from != to)
+            {
+                return default;
+            }
+            else
+            {
+                return amount;
+            }
         }
     }
 }

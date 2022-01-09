@@ -11,18 +11,13 @@ namespace Ordering.Infrastructure.Repositories
     {
         protected internal readonly OrderContext _dbContext;
 
-        public AsyncRepositoryBase(OrderContext orderContext)
+        protected AsyncRepositoryBase(OrderContext orderContext)
         {
             _dbContext = orderContext;
         }
 
         public virtual async Task<TEntity> AddAsync(TEntity entity)
         {
-            if (entity is null)
-            {
-                throw new ArgumentNullException(nameof(entity));
-            }
-
             _dbContext.Set<TEntity>().Add(entity);
             await _dbContext.SaveChangesAsync();
             return entity;
@@ -30,11 +25,6 @@ namespace Ordering.Infrastructure.Repositories
 
         public virtual async Task UpdateAsync(TEntity entity)
         {
-            if (entity is null)
-            {
-                throw new ArgumentNullException(nameof(entity));
-            }
-
             _dbContext.Entry(entity).State = EntityState.Modified;
 
             await _dbContext.SaveChangesAsync();
@@ -42,11 +32,6 @@ namespace Ordering.Infrastructure.Repositories
 
         public virtual async Task DeleteAsync(TEntity entity)
         {
-            if (entity is null)
-            {
-                throw new ArgumentNullException(nameof(entity));
-            }
-
             _dbContext.Set<TEntity>().Remove(entity);
             await _dbContext.SaveChangesAsync();
         }

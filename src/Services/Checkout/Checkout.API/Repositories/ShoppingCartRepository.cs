@@ -32,11 +32,6 @@ namespace Checkout.API.Repositories
 
         public async Task<ShoppingCart> Save(ShoppingCart basket)
         {
-            if (basket is null)
-            {
-                throw new ArgumentNullException(nameof(basket));
-            }
-
             await _redisCache.SetStringAsync(basket.CustomerId.ToString(), JsonConvert.SerializeObject(basket));
 
             return await Get(basket.CustomerId);

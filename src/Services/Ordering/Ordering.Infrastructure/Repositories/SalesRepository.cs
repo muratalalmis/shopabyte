@@ -15,7 +15,7 @@ namespace Ordering.Infrastructure.Repositories
         public async Task<IReadOnlyCollection<Sales>> GetByDateBetween(DateTime begin, DateTime end)
         {
             return await _dbContext.Sales
-                .Where(o => begin >= o.DocDate && o.DocDate <= o.DocDate)
+                .Where(o => begin >= o.DocDate && o.DocDate <= end)
                 .ToListAsync();
         }
     }

@@ -79,7 +79,6 @@ namespace Checkout.API.Services
         {
             return new ShoppingCart()
             {
-                // TODO
                 Currency = "TRY",
                 CustomerId = customerId,
                 Total = 0,

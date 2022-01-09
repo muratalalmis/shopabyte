@@ -24,13 +24,11 @@ namespace Ordering.Infrastructure.Persistence
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        // TODO : implement
                         entry.Entity.CreatedBy = 0;
                         entry.Entity.CreatedAt = DateTime.Now;
 
                         break;
                     case EntityState.Modified:
-                        // TODO : implement
                         entry.Entity.LastModifiedBy = 0;
                         entry.Entity.LastModifiedAt = DateTime.Now;
 

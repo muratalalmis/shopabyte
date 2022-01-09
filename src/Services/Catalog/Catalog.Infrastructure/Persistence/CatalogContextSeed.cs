@@ -5,6 +5,10 @@ namespace Catalog.API.Persistence
 {
     public class CatalogContextSeed
     {
+        protected CatalogContextSeed()
+        {
+        }
+
         public static async Task SeedAsync(CatalogContext catalogContext, ILogger<CatalogContextSeed> logger)
         {
             if (!catalogContext.Products.Any())
