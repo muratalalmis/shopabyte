@@ -33,9 +33,9 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-Console.WriteLine("Ensuring database...");
+app.Logger.LogInformation("Ensuring database...");
 var dbContext = new OrderContext();
 dbContext.Database.EnsureCreated();
-Console.WriteLine("Database loaded...");
+app.Logger.LogInformation("Database loaded...");
 
 app.Run();
