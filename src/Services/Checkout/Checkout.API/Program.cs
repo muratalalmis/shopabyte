@@ -1,3 +1,4 @@
+using Catalog.Grpc;
 using Checkout.API.Repositories;
 using Checkout.API.Services;
 
@@ -15,6 +16,8 @@ builder.Services.AddScoped<IShoppingCartItemFactory, ShoppingCartItemFactory>();
 builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
 
 var configuration = builder.Configuration;
+builder.Services.AddGrpcClient<CatalogGrpcService.CatalogGrpcServiceClient>(o => 
+    o.Address = new Uri(configuration["GrpcSettings:CatalogUrl"]));
 builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = configuration.GetValue<string>("CacheSettings:ConnectionString");

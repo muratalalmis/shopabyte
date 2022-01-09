@@ -50,9 +50,9 @@ namespace Checkout.API.Services
             }
         }
 
-        public Task<string> Checkout(int customerId)
+        public async Task Drop(int customerId)
         {
-            throw new NotImplementedException();
+            await _shoppingCartRepository.Drop(customerId);
         }
 
         public async Task<ShoppingCart> ChangeCurrency(int customerId, string currency)
