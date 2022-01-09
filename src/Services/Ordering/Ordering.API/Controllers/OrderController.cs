@@ -6,6 +6,8 @@ using System.Net;
 
 namespace Ordering.API.Controllers
 {
+    [ApiController]
+    [Route("api/v1/[controller]")]
     public class OrderController : Controller
     {
         private readonly IMediator _mediator;
