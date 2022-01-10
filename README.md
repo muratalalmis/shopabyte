@@ -4,12 +4,12 @@ Shopabyte a online shop demo for development microservices applications. It uses
 
 Before you test it you should run this docker commands;
 
-intialize rabbitmq;
+initialize rabbitmq;
 ```
 docker run -d --hostname my-rabbit --name -p 8080:15672 -p 5672:5672 rabbitmq:3-management
 ```
 
-intialize redis;
+initialize redis;
 ```
 docker run -d -p 6379:6379 --name my-redis redis
 ```
