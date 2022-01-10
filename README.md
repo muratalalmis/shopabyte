@@ -21,4 +21,5 @@ The services are uses gRPC when accessing to other. Each service has polygot dat
 
 ## About the CQRS implementation
 I was implement to Meditr from nuget package store. It is a common way of the cqrs pattern implementation. Lookup to diagram for more information
+
 ![mediatr implmentation diagram](https://raw.githubusercontent.com/muratalalmis/shopabyte/main/diagrams/export/ordering-uml.png)
